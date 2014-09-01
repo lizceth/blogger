@@ -1,0 +1,25 @@
+{% extends "index2.html" %}
+{% block contenido %}
+    <a href="/agregar/articulo/"class = "btn btn-primary" >Agregar Artículo</a>
+            {% for articulo in articulos %}
+            <h2><a href="detalle/">{{articulo.titulo}}</a></h2>
+
+            <h3>Contenido </h3>
+               {{articulo.contenido}}
+
+            <h4>Categoria</h4>
+                {{articulo.categoria}}
+            <h4>Fecha de publicacion </h4>
+               {{articulo.fecha_pub}}
+
+        
+                <button> <a href="/editar/articulo/{{articulo.id}}"class = "btn
+                        btn-success" >Editar</a></button>
+                <button> <a href="/borrar/articulo/{{articulo.id}}"class = "btn
+                        btn-danger" >Borrar</a></button>
+            {% empty %}
+            
+                <td> No hay Articulos Disponibles </td>
+        
+            {% endfor %}
+{% endblock contenido %}

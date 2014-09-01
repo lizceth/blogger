@@ -1,0 +1,17 @@
+{% extends "index2.html" %}
+{% block contenido %}
+<h1>{{articulo.titulo}}</h1>
+<ul>
+    <p> {{articulo.contenido}}</p>
+    <p><strong>Fecha de publicacion:</strong> {{articulo.fecha_pub}} </p>
+    <p><strong>Categoria:</strong> {{articulo.categoria}}</p>
+    <p><strong>Publicado por:</strong> {{articulo.autor}} </p>
+    <h3>Comentarios:</h3>
+    {% for comentario in comentarios %}
+    <p>{{comentario.texto}}</p>
+    <p>por:</p>
+    <p>comentado el :{{comentario.fecha}}</p>
+    {% endfor %}
+    <a href="/agregar/comentario/{{articulo.id}}/"  class="btn btn-primary">Comentar</a>
+</ul>               
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "index2.html" %}
+{% block contenido %}
+<!DOCTYPE html>
+<html lang="es-pe">
+<link rel="stylesheet" href="{{STATIC_URL}}css/estilo.css" />
+<h4>Bienvenido {{usuario.username|upper}}, 
+		la última vez que ingreso al sistema fue el {{usuario.last_login}}.</h4>
+    <p>Es miembro desde el {{usuario.date_joined}}</p>      
+{% endblock %}

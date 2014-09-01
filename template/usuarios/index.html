@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>blog FIA</title> 
+        <a href="/">inicio</a>
+        <a href="/articulos/">articulos</a>
+        <a href="/cerrar/">cerrar</a>
+    </head>
+    {% block contenido %}
+    <body>
+        <div>
+
+            {% for articulo in articulos %} 
+            <h1>
+                <a href="/detalle/{{articulo.id}}">{{articulo.titulo}}</a>
+            </h1>
+            <h2>{{articulo.texto}}</h2>
+            <h5>{{articulo.fecha_pub}}</h5>
+            {% empty %}
+                <li>No hay Articulos Disponibles.</li>   
+            {% endfor %}
+        </div>
+        <div>
+            <br>  
+            <h3>Comentarios:</h3>
+            {% for comentario in comentarios %}
+            <li>{{comentario.comentario}}</li>
+            <li>{{comentario.fecha}}</li>
+            {% endfor %}
+        </div>
+    </body> 
+    {% endblock contenido %}
+    <footer>
+    </footer>
+</html>
+

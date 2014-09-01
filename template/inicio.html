@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>blog FIA</title> 
+        <a href="/">inicio</a>
+        <a href="/ingresar/">ingresar</a>
+        <a href="/sobre/">sobre</a>
+    </head>
+    <body>
+        <header> 
+            <figure id="logo">
+                <img src="upeu.png" alt="">
+            </figure>
+        </header>
+        {% block contenido %}
+            <article>
+                {% for articulo in articulos %} 
+                <h1>
+                    <a href="/detalle/{{articulo.id}}">{{articulo.titulo}}</a>
+                </h1>
+                <h2>{{articulo.contenido}}</h2>
+                <h5>{{articulo.fecha_pub}}</h5>
+                {% empty %}
+                    <li>No hay Articulos Disponibles.</li>   
+                {% endfor %}
+            </article>
+        </section>
+        {% endblock %}
+    </body> 
+    <footer>
+    </footer>
+</html>
+
