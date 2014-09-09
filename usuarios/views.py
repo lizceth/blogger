@@ -35,7 +35,7 @@ def ingresar(request):
                 if acceso.is_active:
                     login(request, acceso)
 
-                   return HttpResponseRedirect('/privado')
+                    return HttpResponseRedirect('/privado')
 
                 else:
                     return render_to_response('usuarios/noactivo.html',
@@ -87,21 +87,4 @@ def cerrar(request):
     logout(request)
     return HttpResponseRedirect('/')
 
-@login_required(login_url='/ingresar')
-def comentar_tap(request, id_tap):
-    logout(request)
-    dato=get_object_or_404(Tap, pk=id_tap)
-
-coment=Comentario.objects.filter(com_tap=dato)
-if request.method=='post':
-    formulario=ComentarioForm(request.POST)
-    is formulario.is_valid():
-        form.formulario.save(commit=False)
-        form.usuario=request.user
-        form.com_tap=dato
-        form.save()
-
-
-    return HttpResponseRedirect('/')
-def obtener(request, id):
 

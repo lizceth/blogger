@@ -6,10 +6,23 @@
 	<title>Blog FIA</title>
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel="stylesheet" href="{{STATIC_URL}}css/foundation.css" />
+   <link href="{{STATIC_URL}}css/estilo.css" rel="stylesheet">
   <script src="{{STATIC_URL}}js/vendor/modernizr.js"></script>
 </head>
 <body>
-    
+    <header>
+        <figure class="insignia">
+            <img src="{{STATIC_URL}}img/logo.png" alt="">
+        </figure>
+        <p >Escuela Academica Profesional</p>
+        <h2>Ingeniería de Sistemas</h2>
+        <ul data-orbit >
+            <li><img class="fotosdes" src="{{STATIC_URL}}img/foto1.png" ></li>
+            <li><img class="fotosdes" src="{{STATIC_URL}}img/foto3.png" ></li>
+            
+			</ul>
+        
+    </header>
 <nav class="top-bar">
     <ul class="title-area">
         <li class="name">
@@ -30,66 +43,38 @@
     </section>
 </nav>
 
-{% block contenido %}
- 
- 
-  <div class="row">
- 
-    <div class="large-10 columns" role="content">
-              <div class="row">
-          {% for articulo in articulos %}
-        <div class="large-2 columns">
+<section>
+    <div class="row">
+        <div class="large-9 columns">
+            {% block contenido%}
+            {% for articulo in articulos %}
+            <div class="row">
+                <div class="large-12-columns">
+                    <h3>
+                     <a href="/detalle/{{articulo.id}}">{{articulo.titulo}}</a>
+                    </h3>
+                    <p> Publicado por: <strong>{{articulo.contenido}}</strong> </p>
+
+                </div>
+            </div>
+            {%endfor%}
+            {%endblock %}
         </div>
-        <div class="large-8 columns">
-        
-      <article>
-          <h3><a href="/detalle/{{articulo.id}}">{{articulo.titulo}}</a></h3>
-          <div class="panel">
-          <p >escrito por: {{articulo.contenido}} </p>
-          <h5>escrito por: {{articulo.autor}} </h5>
-          <h5 >el:<strong> {{articulo.fecha_pub}} </strong> </h5>
-          </div>
-      </article>
-  
-  </div>
-
-  
-  {% endfor %}      
-  
-{%endblock %}
-
+        <div class="large-3 columns">
+            este es un nuevo contenido
+        </div>
+    </div>
+</section>
+<div class="row">
+  <div class="small-2 columns">2 columns</div>
+    <div class="small-10 columns">10 columns</div>
 </div>
-     </div>
- 
-    <aside class="large-2 columns">
- 
-      <h5>Categories</h5>
-      <ul class="side-nav">
-        <li><a href="#">News</a></li>
-        <li><a href="#">Code</a></li>
-        <li><a href="#">Design</a></li>
-        <li><a href="#">Fun</a></li>
-        <li><a href="#">Weasels</a></li>
-      </ul>
- 
-      <div class="panel">
-        <h5>Featured</h5>
-        <p>Pork drumstick turkey fugiat. Tri-tip elit turducken pork chop in. Swine short ribs meatball irure bacon nulla pork belly cupidatat meatloaf cow.</p>
-        <a href="#">Read More ?</a>
-      </div>
- 
-    </aside>
- 
-     
-  </div>
- 
-   
- 
- 
-   
- 
+<div class="row">
+      <div class="small-3 columns">3 columns</div>
+        <div class="small-9 columns">9 columns</div>
+    </div>
   <footer class="row">
-    <div class="large-12 columns">
+    <div class="small-9 large-9 columns">
       <hr/>
       <div class="row">
         <div class="large-6 columns">
@@ -107,6 +92,10 @@
     </div>
   </footer>
     
-	
+  <script type="text/javascript" src="{{STATIC_URL}}js/vendor/jquery.js"></script>
+  <script type="text/javascript" src="{{STATIC_URL}}js/foundation.min.js"></script>
+  <script type="text/javascript">
+  $(document).foundation();
+  </script>
 </body>
 </html>

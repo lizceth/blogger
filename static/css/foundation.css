@@ -104,7 +104,8 @@ select {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 0;
-  max-width: 62.5rem; }
+  max-width:80.5rem;
+  }
   .row:before, .row:after {
     content: " ";
     display: table; }
@@ -1526,7 +1527,7 @@ meta.foundation-mq-topbar {
 
 @media only screen and (min-width: 40.063em) {
   .top-bar {
-    background: #333333;
+    background:#700B42;
     overflow: visible; }
     .top-bar:before, .top-bar:after {
       content: " ";
@@ -1571,7 +1572,7 @@ meta.foundation-mq-topbar {
     .top-bar-section li:not(.has-form) a:not(.button) {
       padding: 0 15px;
       line-height: 45px;
-      background: #333333; }
+      background: #700B42; }
       .top-bar-section li:not(.has-form) a:not(.button):hover {
         background-color: #555555;
         background: #272727; }
